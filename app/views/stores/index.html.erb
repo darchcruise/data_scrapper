@@ -1,0 +1,40 @@
+<h1>Listing stores</h1>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stores.each do |store| %>
+  <tr>
+    <td><%= store.item %></td>
+    <td><%= store.price %></td>
+    <td><%= link_to 'Show', store %></td>
+    <td><%= link_to 'Edit', edit_store_path(store) %></td>
+    <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Store', new_store_path %>
+<br>
+
+  <%= @title %> <br>
+
+  <% counter = 0 %>
+
+ <% (1..@items.length).each do |element_no| %> <br>
+
+ <% counter += 1 %>
+
+ <%=  "#{counter}. #{@items[element_no]} #{@prices[element_no]}" %> <br>
+
+ <% end %>
+
+  <br>
